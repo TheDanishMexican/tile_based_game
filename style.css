@@ -1,0 +1,139 @@
+#game_field {
+    position: relative;
+}
+
+#background {
+    grid-area: 1/1;
+    display: grid;
+    grid-template-columns: repeat(var(--grid_width), max-content);
+    position: absolute;
+}
+
+#background .tile {
+    width: calc(var(--tile_size) * 1px);
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    image-rendering: pixelated;
+}
+
+.tile.path {
+    background-image: url('./assets/simple-assets/images/tiles/path.png');
+}
+
+.tile.grass {
+    background-image: url('./assets/simple-assets/images/tiles/grass.png');
+}
+.tile.water {
+    background-image: url('./assets/simple-assets/images/tiles/water.png');
+}
+.tile.wall {
+    background-image: url('./assets/simple-assets/images/tiles/wall.png');
+}
+.tile.flower {
+    background-image: url('./assets/simple-assets/images/tiles/flowers.png');
+}
+.tile.gate {
+    background-image: url('./assets/simple-assets/images/tiles/gate.png');
+}
+.tile.tree {
+    background-image: url('./assets/simple-assets/images/tiles/tree.png');
+}
+.tile.floor {
+    background-image: url('./assets/simple-assets/images/tiles/floor_wood.png');
+}
+
+.highlight {
+    outline: 2px dashed yellow;
+    translate: 0 0;
+}
+
+#player {
+    background-image: url('./assets/simple-assets/images/character/Character\ 1.png');
+    width: 28px;
+    height: 32px;
+    background-size: 400% 400%;
+    background-position: 0% 0%;
+    position: absolute;
+}
+
+.spin {
+    /* animation: spin 0.5s ease-in-out forwards; */
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#player.animate {
+    animation-duration: 0.7s;
+    animation-timing-function: steps(4);
+    animation-iteration-count: infinite;
+}
+
+#player.down {
+    background-position: 0% 0%;
+    animation-name: down;
+}
+
+@keyframes down {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: -400% 0%;
+    }
+}
+
+#player.up {
+    background-position: 0% 300%;
+    animation-name: up;
+}
+
+@keyframes up {
+    from {
+        background-position: 0% 300%;
+    }
+    to {
+        background-position: -400% 300%;
+    }
+}
+
+#player.left {
+    background-position: 0% 200%;
+    animation-name: left;
+}
+
+@keyframes left {
+    from {
+        background-position: 0% 200%;
+    }
+    to {
+        background-position: -400% 200%;
+    }
+}
+
+#player.right {
+    background-position: 0% 100%;
+    animation-name: right;
+}
+
+@keyframes right {
+    from {
+        background-position: 0% 100%;
+    }
+    to {
+        background-position: -400% 100%;
+    }
+}
+
+.show-rect {
+    outline: 2px solid red;
+}
+
+.show-reg-point::before {
+    content: '';
+    position: absolute;
+    background-color: cyan;
+    width: 3px;
+    height: 3px;
+
+    translate: var(--regX) var(--regY);
+}
