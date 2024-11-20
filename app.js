@@ -29,10 +29,14 @@ const playerObj = {
     x: 50,
     y: 50,
     regX: 12,
-    regY: 30,
-    speed: 200,
+    regY: 26,
+    speed: 100,
     width: 28,
     height: 32,
+    hitboxW: 18,
+    hitboxH: 25,
+    hitboxX: 5,
+    hitboxY: 5,
     moving: false,
     direction: undefined
 };
@@ -178,10 +182,20 @@ function showPlayerRegPoint() {
     visualPlayer.classList.add("show-reg-point");
 }
 
+function showPlayerHitbox() {
+    visualPlayer.style.setProperty("--hitboxW", playerObj.hitboxW);
+    visualPlayer.style.setProperty("--hitboxH", playerObj.hitboxH);
+    visualPlayer.style.setProperty("--hitboxX", `${playerObj.hitboxX}px`);
+    visualPlayer.style.setProperty("--hitboxY", `${playerObj.hitboxY}px`);
+
+    visualPlayer.classList.add("show-hitbox");
+}
+
 function showDebugging() {
     showPlayerRegPoint();
     debugShowTileUnderPlayer();
     showPlayerRect();
+    showPlayerHitbox();
 }
 
 

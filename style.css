@@ -137,3 +137,15 @@
 
     translate: var(--regX) var(--regY);
 }
+
+.show-hitbox::after {
+    content: '';
+    position: absolute;
+    width: calc(var(--hitboxW) * 1px);
+    height: calc(var(--hitboxH) * 1px);
+    translate: var(--hitboxX) var(--hitboxY);
+    outline: 2px solid hotpink;
+}
+
+
+/* width: calc(var(--tile_size) * 1px);
